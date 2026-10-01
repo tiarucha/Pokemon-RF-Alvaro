@@ -1,0 +1,324 @@
+/* =========================================
+   VARIABLES DE COLOR (estilo Pokémon)
+   ========================================= */
+:root {
+  --rojo-pokemon: #cc0000;
+  --rojo-oscuro: #9c0000;
+  --amarillo-pokemon: #ffcb05;
+  --azul-pokemon: #3b4cca;
+  --fondo: #f4f6fb;
+  --blanco: #ffffff;
+  --texto: #2c2c2c;
+  --gris-claro: #e6e6e6;
+  --sombra: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+.section {
+  padding: 60px 8%;
+}
+
+.section-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.4rem;
+  color: var(--rojo-pokemon);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 35px auto;
+  color: #555;
+}
+
+/* =========================================
+   ENCABEZADO Y NAVEGACIÓN
+   ========================================= */
+.header {
+  background: linear-gradient(135deg, var(--rojo-pokemon), var(--rojo-oscuro));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 10px var(--sombra);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 6%;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: var(--amarillo-pokemon);
+  font-size: 1.4rem;
+  text-shadow: 2px 2px 0 var(--azul-pokemon);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+  background-color: var(--amarillo-pokemon);
+  color: var(--rojo-oscuro);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   INICIO / HERO
+   ========================================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  background: linear-gradient(180deg, var(--amarillo-pokemon) 0%, var(--fondo) 100%);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-text h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--rojo-oscuro);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 260px;
+  max-width: 90%;
+}
+
+/* Pequeña animación flotante para la imagen principal */
+.floating {
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* =========================================
+   TARJETAS (grid reutilizable)
+   ========================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--blanco);
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 3px 8px var(--sombra);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 20px var(--sombra);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.card h3 {
+  margin: 8px 0 4px 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.card .numero {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* Insignias de tipo de Pokémon */
+.tipo {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  color: var(--blanco);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 3px 3px 0 3px;
+  text-transform: capitalize;
+}
+
+/* Colores por tipo de Pokémon */
+.tipo-normal   { background-color: #A8A878; }
+.tipo-fire     { background-color: #F08030; }
+.tipo-water    { background-color: #6890F0; }
+.tipo-electric { background-color: #F8D030; color: #333; }
+.tipo-grass    { background-color: #78C850; }
+.tipo-ice      { background-color: #98D8D8; color: #333; }
+.tipo-fighting { background-color: #C03028; }
+.tipo-poison   { background-color: #A040A0; }
+.tipo-ground   { background-color: #E0C068; color: #333; }
+.tipo-flying   { background-color: #A890F0; }
+.tipo-psychic  { background-color: #F85888; }
+.tipo-bug      { background-color: #A8B820; }
+.tipo-rock     { background-color: #B8A038; }
+.tipo-ghost    { background-color: #705898; }
+.tipo-dragon   { background-color: #7038F8; }
+.tipo-dark     { background-color: #705848; }
+.tipo-steel    { background-color: #B8B8D0; color: #333; }
+.tipo-fairy    { background-color: #EE99AC; color: #333; }
+
+/* =========================================
+   BUSCADOR DE POKÉMON
+   ========================================= */
+.buscador {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.buscador input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 2px solid var(--azul-pokemon);
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.buscador input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.3);
+}
+
+.mensaje-carga {
+  text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   TARJETAS ESPECIALES (iniciales y líderes)
+   ========================================= */
+.card-iniciales {
+  border-top: 5px solid var(--rojo-pokemon);
+}
+
+.card-lider {
+  border-top: 5px solid var(--azul-pokemon);
+}
+
+.card-lider .ciudad {
+  font-weight: 600;
+  color: var(--rojo-pokemon);
+  margin: 5px 0;
+}
+
+/* =========================================
+   SECCIÓN "SOBRE EL JUEGO"
+   ========================================= */
+.sobre-section {
+  background-color: var(--azul-pokemon);
+  color: var(--blanco);
+}
+
+.sobre-section .section-title {
+  color: var(--amarillo-pokemon);
+}
+
+.sobre-section .section-intro {
+  color: var(--gris-claro);
+}
+
+/* =========================================
+   PIE DE PÁGINA
+   ========================================= */
+.footer {
+  background-color: var(--texto);
+  color: var(--gris-claro);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+}
+
+/* =========================================
+   RESPONSIVE - CELULARES
+   ========================================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .nav.activo {
+    display: flex;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .section {
+    padding: 40px 5%;
+  }
+}
